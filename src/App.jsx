@@ -6,10 +6,9 @@ import ShowTask from "./components/ShowTask";
 function App() {
 	return (
 		<>
-			<h1>Hello</h1>
 			<Header />
-			<ShowTask />
-			<AddTask />
+			{/* <ShowTask />
+			<AddTask /> */}
 		</>
 	);
 }

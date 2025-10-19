@@ -11,9 +11,9 @@ export default function Header() {
 				<span className="light active-theme"></span>
 				<span className="medium"></span>
 				<span className="dark"></span>
-				<span className="gOne"></span>
-				<span className="gTwo"></span>
-				<span className="gThree"></span>
+				<span className="gradOne"></span>
+				<span className="gradTwo"></span>
+				<span className="gradThree"></span>
 			</div>
 		</header>
 	);

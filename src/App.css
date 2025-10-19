@@ -2,4 +2,75 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	background-color: whitesmoke;
+}
+
+body {
+	width: 80%;
+	margin: 0 auto;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	background-color: white;
+	margin-top: 30px;
+	padding: 20px 20px;
+}
+
+.logo {
+	display: flex;
+	/* border: 2px solid black; */
+	align-items: center;
+	background: transparent;
+	gap: 10px;
+}
+
+.logo > img {
+	width: 50px;
+	height: 50px;
+	background: inherit;
+}
+
+.logo > span {
+	font-size: 2rem;
+	background: inherit;
+}
+
+.theme-selector {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+	background: inherit;
+	/* border: 2px solid red; */
+}
+
+.theme-selector > span {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	border: 1px solid black;
+	border-radius: 50%;
+}
+
+.light {
+	background-color: white;
+}
+
+.medium {
+	background-color: rgb(52, 52, 52);
+}
+
+.dark {
+	background-color: rgb(0, 0, 0);
+}
+.gradOne {
+	background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+}
+.gradTwo {
+	background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+.gradThree {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
