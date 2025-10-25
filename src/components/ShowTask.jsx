@@ -1,25 +1,31 @@
-export default function ShowTask() {
-	const tasks = [
-		{ id: 1, name: "Task A", time: "2:09:01 AM 9/14/2030" },
-		{ id: 2, name: "Task B", time: "2:09:01 AM 9/14/2030" },
-		{ id: 3, name: "Task C", time: "2:09:01 AM 9/14/2030" },
-		{ id: 4, name: "Task D", time: "2:09:01 AM 9/14/2030" },
-		{ id: 5, name: "Task E", time: "2:09:01 AM 9/14/2030" },
-		{ id: 6, name: "Task F", time: "2:09:01 AM 9/14/2030" },
-		{ id: 7, name: "Task G", time: "2:09:01 AM 9/14/2030" },
-	];
+export default function ShowTask({ tasklist, setTasklist }) {
+	// const tasks = [
+	// 	{ id: 1, name: "Task A", time: "2:09:01 AM 9/14/2030" },
+	// 	{ id: 2, name: "Task B", time: "2:09:01 AM 9/14/2030" },
+	// 	{ id: 3, name: "Task C", time: "2:09:01 AM 9/14/2030" },
+	// 	{ id: 4, name: "Task D", time: "2:09:01 AM 9/14/2030" },
+	// 	{ id: 5, name: "Task E", time: "2:09:01 AM 9/14/2030" },
+	// 	{ id: 6, name: "Task F", time: "2:09:01 AM 9/14/2030" },
+	// 	{ id: 7, name: "Task G", time: "2:09:01 AM 9/14/2030" },
+	// ];
 
 	return (
-		<section className="showTask">
+		<section className="show-task">
 			<div className="head">
 				<div>
 					<span className="title">Todo</span>
-					<span className="count">{tasks.length}</span>
+					<span className="count">{tasklist.length}</span>
 				</div>
-				<button className="clearAll">Clear All</button>
+				<button className="clear-all" onClick={() => {
+					if (window.confirm("Are you sure you want to clear all tasks?")) {
+						setTasklist([])
+					}
+				}}>
+					Clear All
+				</button>
 			</div>
 			<ul>
-				{tasks.map((task) => {
+				{tasklist.map((task) => {
 					return (
 						<li key={task.id}>
 							<p>
@@ -27,8 +33,20 @@ export default function ShowTask() {
 								<span className="time">{task.time}</span>
 							</p>
 							<div className="task-icon">
-								<i className="fa fa-pencil-square"></i>
-								<i className="fa fa-trash"></i>
+								<button className="pencil-btn">
+									<img
+										src="/icons/pencil.svg"
+										className="pencil-icon"
+										alt="edit"
+									/>
+								</button>
+								<button className="trash-btn">
+									<img
+										src="/icons/garbage-bin.svg"
+										className="trash-icon"
+										alt="delete"
+									/>
+								</button>
 							</div>
 						</li>
 					);
