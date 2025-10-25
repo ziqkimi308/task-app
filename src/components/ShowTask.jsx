@@ -9,6 +9,11 @@ export default function ShowTask({ tasklist, setTasklist }) {
 	// 	{ id: 7, name: "Task G", time: "2:09:01 AM 9/14/2030" },
 	// ];
 
+	const handleDelete = (id) => {
+		const updatedTaskList = tasklist.filter((task) => task.id !== id);
+		setTasklist(updatedTaskList)
+	};
+
 	return (
 		<section className="show-task">
 			<div className="head">
@@ -16,11 +21,14 @@ export default function ShowTask({ tasklist, setTasklist }) {
 					<span className="title">Todo</span>
 					<span className="count">{tasklist.length}</span>
 				</div>
-				<button className="clear-all" onClick={() => {
-					if (window.confirm("Are you sure you want to clear all tasks?")) {
-						setTasklist([])
-					}
-				}}>
+				<button
+					className="clear-all"
+					onClick={() => {
+						if (window.confirm("Are you sure you want to clear all tasks?")) {
+							setTasklist([]);
+						}
+					}}
+				>
 					Clear All
 				</button>
 			</div>
@@ -40,7 +48,10 @@ export default function ShowTask({ tasklist, setTasklist }) {
 										alt="edit"
 									/>
 								</button>
-								<button className="trash-btn">
+								<button
+									className="trash-btn"
+									onClick={() => handleDelete(task.id)}
+								>
 									<img
 										src="/icons/garbage-bin.svg"
 										className="trash-icon"

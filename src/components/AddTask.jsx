@@ -1,8 +1,4 @@
-import { useState } from "react";
-
 export default function AddTask({ tasklist, setTasklist }) {
-	const [taskName, setTaskName] = useState("");
-
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
@@ -16,20 +12,13 @@ export default function AddTask({ tasklist, setTasklist }) {
 		};
 
 		setTasklist([...tasklist, newTask]);
-		setTaskName("");
+		event.target.task.value = "";
 	};
 
 	return (
 		<section className="add-task">
 			<form onSubmit={handleSubmit}>
-				<input
-					type="text"
-					name="task"
-					placeholder="Add Task"
-					maxLength="50"
-					value={taskName}
-					onChange={(event) => setTaskName(event.target.value)}
-				/>
+				<input type="text" name="task" placeholder="Add Task" maxLength="50" />
 				<button type="submit">Add</button>
 			</form>
 		</section>
