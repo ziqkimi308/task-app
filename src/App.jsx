@@ -7,8 +7,10 @@ function App() {
 	return (
 		<>
 			<Header />
-			{/* <ShowTask />
-			<AddTask /> */}
+
+			<AddTask />
+
+			<ShowTask />
 		</>
 	);
 }

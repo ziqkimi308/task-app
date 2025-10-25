@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import logo from "../assets/logo.png";
+import logo2 from "../assets/logo2.png";
 import { ThemeContext } from "../context/ThemeContext";
 
 export default function Header() {
@@ -8,7 +8,7 @@ export default function Header() {
 	return (
 		<header>
 			<div className="logo">
-				<img src={logo} alt="logo" />
+				<img src={logo2} alt="logo" />
 				<span>Task-App</span>
 			</div>
 			<div className="theme-selector">

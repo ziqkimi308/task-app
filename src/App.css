@@ -7,6 +7,10 @@
 body {
 	width: 80%;
 	margin: 0 auto;
+
+	background-color: #231d1d;
+
+	font-family: "Oswald", sans-serif;
 }
 
 header {
@@ -16,9 +20,9 @@ header {
 	background-color: white;
 
 	margin-top: 30px;
-	padding: 20px 20px;
+	padding: 10px 10px;
 
-	border: 2px solid black;
+	/* border: 2px solid black; */
 	border-radius: 5px;
 }
 
@@ -37,7 +41,7 @@ header {
 }
 
 .logo > span {
-	font-size: 2rem;
+	font-size: 1.5rem;
 	background: inherit;
 }
 
@@ -59,7 +63,7 @@ header {
 }
 
 .light {
-	background-color: white;
+	background-color: #e0d9d9;
 }
 
 .medium {
@@ -71,10 +75,133 @@ header {
 }
 .gradOne {
 	background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
 }
 .gradTwo {
 	background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
 }
 .gradThree {
 	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.addTask {
+	width: 400px;
+	height: 60px;
+	margin: 0 auto;
+	margin-top: 40px;
+	padding: 10px 10px;
+
+	border-radius: 5px;
+
+	background-color: white;
+}
+
+.addTask > form {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	width: 100%;
+	height: 100%;
+}
+
+.addTask button {
+	background-color: rgb(84, 216, 120);
+	color: white;
+
+	border: none;
+	border-radius: 5px;
+
+	height: 40px;
+	width: 50px;
+}
+
+.addTask input {
+	border: none;
+	width: 80%;
+}
+
+.addTask input:focus {
+	outline: none;
+}
+
+.showTask {
+	background-color: white;
+
+	margin-top: 20px;
+
+	border-radius: 5px;
+}
+
+.head {
+	display: flex;
+	justify-content: space-between;
+
+	padding: 20px;
+	margin: 5px 5px;
+
+	border-bottom: 1px solid rgb(187, 187, 187);
+}
+
+.head > div {
+	display: flex;
+	align-items: center;
+
+	font-size: 1.5rem;
+}
+
+.count {
+	background-color: rgb(243, 30, 83);
+	color: white;
+
+	font-size: 1.5rem;
+
+	border-radius: 50%;
+
+	margin-left: 15px;
+	width: 30px;
+	height: 30px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.showTask ul {
+	display: grid;
+	grid-template-columns: repeat(3, auto);
+	row-gap: 5px;
+}
+
+.showTask ul > li {
+	display: flex;
+	justify-content: space-around;
+
+	list-style: none;
+
+	padding: 10px;
+}
+
+.showTask ul > li > p {
+	display: flex;
+	flex-direction: column;
+}
+
+.name {
+	font-size: 2rem;
+}
+
+.time {
+	font-size: 1rem;
+	font-weight: 100;
+
+	color: rgb(119, 119, 119);
 }
