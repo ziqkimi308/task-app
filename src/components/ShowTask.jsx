@@ -1,17 +1,41 @@
+import { useState } from "react";
+
 export default function ShowTask({ tasklist, setTasklist }) {
-	// const tasks = [
-	// 	{ id: 1, name: "Task A", time: "2:09:01 AM 9/14/2030" },
-	// 	{ id: 2, name: "Task B", time: "2:09:01 AM 9/14/2030" },
-	// 	{ id: 3, name: "Task C", time: "2:09:01 AM 9/14/2030" },
-	// 	{ id: 4, name: "Task D", time: "2:09:01 AM 9/14/2030" },
-	// 	{ id: 5, name: "Task E", time: "2:09:01 AM 9/14/2030" },
-	// 	{ id: 6, name: "Task F", time: "2:09:01 AM 9/14/2030" },
-	// 	{ id: 7, name: "Task G", time: "2:09:01 AM 9/14/2030" },
-	// ];
+	const [editingId, setEditingId] = useState(null);
+	const [editValue, setEditValue] = useState("");
+	let clickTimer = null;
+
+	const handleClick = (task) => {
+		clickTimer = setTimeout(() => {
+			setEditingId(task.id);
+			setEditValue(task.name);
+		}, 0);
+	};
+
+	const handleDoubleClick = (task) => {
+		clearTimeout(clickTimer);
+		if (window.confirm(`Delete "${task.name}"?`)) handleDelete(task.id);
+	};
+
+	const handleEdit = (id, newName) => {
+		if (!newName.trim()) return;
+		const date = new Date();
+		const updatedTaskList = tasklist.map((task) =>
+			task.id === id
+				? {
+						...task,
+						name: newName,
+						time: `${date.toLocaleTimeString()} ${date.toLocaleDateString()}`,
+				  }
+				: task
+		);
+		setTasklist(updatedTaskList);
+		setEditingId(null);
+	};
 
 	const handleDelete = (id) => {
 		const updatedTaskList = tasklist.filter((task) => task.id !== id);
-		setTasklist(updatedTaskList)
+		setTasklist(updatedTaskList);
 	};
 
 	return (
@@ -20,6 +44,7 @@ export default function ShowTask({ tasklist, setTasklist }) {
 				<div>
 					<span className="title">Todo</span>
 					<span className="count">{tasklist.length}</span>
+					<span className="instruction">Click to Edit and DoubleClick to Delete</span>
 				</div>
 				<button
 					className="clear-all"
@@ -35,30 +60,31 @@ export default function ShowTask({ tasklist, setTasklist }) {
 			<ul>
 				{tasklist.map((task) => {
 					return (
-						<li key={task.id}>
-							<p>
-								<span className="name">{task.name}</span>
-								<span className="time">{task.time}</span>
-							</p>
-							<div className="task-icon">
-								<button className="pencil-btn">
-									<img
-										src="/icons/pencil.svg"
-										className="pencil-icon"
-										alt="edit"
-									/>
-								</button>
-								<button
-									className="trash-btn"
-									onClick={() => handleDelete(task.id)}
-								>
-									<img
-										src="/icons/garbage-bin.svg"
-										className="trash-icon"
-										alt="delete"
-									/>
-								</button>
-							</div>
+						<li
+							key={task.id}
+							onClick={() => handleClick(task)}
+							// Double click
+							onDoubleClick={() => handleDoubleClick(task)}
+						>
+							{editingId === task.id ? (
+								<input
+									id="input-edit"
+									type="text"
+									value={editValue}
+									onChange={(e) => setEditValue(e.target.value)}
+									// onChange - the value is set to EditValue which then if Blur or KeyDown by Enter, EditValue will replace old task
+									onBlur={() => handleEdit(task.id, editValue)}
+									onKeyDown={(e) => {
+										if (e.key === "Enter") handleEdit(task.id, editValue);
+									}}
+									autoFocus
+								/>
+							) : (
+								<div className="task-container">
+									<span className="name">{task.name}</span>
+									<span className="time">{task.time}</span>
+								</div>
+							)}
 						</li>
 					);
 				})}

@@ -2,12 +2,16 @@ export default function AddTask({ tasklist, setTasklist }) {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
-		const date = new Date();
-		// console.log("date: ", date, "\ntarget.value: ", event.target.task.value)
+		const taskValue = event.target.task.value.trim();
+		if (!taskValue) {
+			alert("Task cannot be empty!");
+			return
+		}
 
+		const date = new Date();
 		const newTask = {
 			id: date.getTime(),
-			name: event.target.task.value,
+			name: taskValue,
 			time: `${date.toLocaleTimeString()} ${date.toLocaleDateString()}`,
 		};
 
