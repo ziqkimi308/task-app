@@ -11,6 +11,16 @@ A simple, modern task management application built with **React**, leveraging fu
 - Theme switcher with multiple looks using React Context
 - Clean, responsive UI styled with CSS
 
+## Preview
+
+![Default Theme](screenshots/default.png)
+![Dark Theme](screenshots/dark.png)
+![True Dark Theme](screenshots/true-dark.png)
+![Blue Theme](screenshots/blue.png)
+![Pink Theme](screenshots/pink.png)
+![Purple Theme](screenshots/purple.png)
+
+
 ## Core Technologies
 
 - **React 19+** (Functional components, hooks, context)
@@ -34,18 +44,20 @@ The **ThemeContext** and **ThemeProvider** logic allows users to switch app them
 ## Getting Started
 
 1. **Clone & Install:**
-    ```bash
-    git clone https://github.com/ziqkimi308/task-app.git
-    cd task-app
-    npm install
-    ```
+
+   ```bash
+   git clone https://github.com/ziqkimi308/task-app.git
+   cd task-app
+   npm install
+   ```
 
 2. **Development Server:**
-    ```bash
-    npm run dev
-    ```
 
-    Open [http://localhost:5173/](http://localhost:5173/) in your browser.
+   ```bash
+   npm run dev
+   ```
+
+   Open [http://localhost:5173/](http://localhost:5173/) in your browser.
 
 ## Project Structure
 
